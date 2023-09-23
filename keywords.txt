@@ -1,0 +1,6 @@
+wk2132	KEYWORD1
+wk2132	KEYWORD2
+setup	KEYWORD2
+register_read	KEYWORD2
+register_write	KEYWORD2
+uart	KEYWORD2
