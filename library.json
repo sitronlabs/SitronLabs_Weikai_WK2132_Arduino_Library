@@ -9,6 +9,7 @@
     },
     "frameworks": "arduino",
     "platforms": "*",
+    "dependencies": [],
     "build": {
         "includeDir": "src"
     }
