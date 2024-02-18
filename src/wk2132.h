@@ -103,6 +103,7 @@ class wk2132 {
         uint8_t m_uart_id;
         bool m_peek_performed = false;
         uint8_t m_peek_byte;
+        int8_t m_page_last = -1;
     } uarts[2];
 
    protected:

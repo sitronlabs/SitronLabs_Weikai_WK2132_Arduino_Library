@@ -10,6 +10,9 @@
  */
 int wk2132::uart::begin(const uint32_t baudrate, const enum wk2132_uart_mode mode) {
 
+    /* Reset page number cache */
+    m_page_last = -1;
+
     /* Enable uart port */
     uint8_t reg_gena;
     if (m_device.register_read(WK2132_REGISTER_GENA, reg_gena) < 0) {
@@ -234,8 +237,14 @@ size_t wk2132::uart::write(uint8_t data) {
  */
 int wk2132::uart::page_set(const enum wk2132_page page) {
 
+    /* Skip if same as previous */
+    if (page == m_page_last) {
+        return 0;
+    }
+
     /* Read register */
     uint8_t reg_spage;
+    uint8_t reg_spage_modified;
     if (register_read(WK2132_REGISTER_SPAGE, reg_spage) < 0) {
         return -EIO;
     }
@@ -243,16 +252,21 @@ int wk2132::uart::page_set(const enum wk2132_page page) {
     /* Set page bit */
     switch (page) {
         case WK2132_PAGE0:
-            reg_spage &= 0xFE;
+            reg_spage_modified = reg_spage & 0xFE;
             break;
         case WK2132_PAGE1:
-            reg_spage |= 0x01;
+            reg_spage_modified = reg_spage | 0x01;
             break;
         default:
             return -EINVAL;
     }
-    if (register_write(WK2132_REGISTER_SPAGE, reg_spage) < 0) {
-        return -EIO;
+    if (reg_spage_modified != reg_spage) {
+        if (register_write(WK2132_REGISTER_SPAGE, reg_spage_modified) < 0) {
+            return -EIO;
+        }
+
+        /* Remember for next time */
+        m_page_last = page;
     }
 
     /* Return succes */
