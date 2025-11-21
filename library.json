@@ -1,6 +1,6 @@
 {
     "name": "Sitron_Labs_WK2132_Arduino_Library",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Arduino library for the Weikai WK2132 multi-bus to UART. The Weikai WK2132 is a 2-channel UART device with low power consumption of 256-level FIFO and supports UART\/SPI\/I2C interface.",
     "keywords": "sitron labs,sitron,labs,arduino,library,i2c,spi,uart,extender,weikai,w2132",
     "repository": {
