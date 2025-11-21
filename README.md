@@ -1,5 +1,6 @@
 [![Designed by Sitron Labs](https://img.shields.io/badge/Designed_by-Sitron_Labs-FCE477)](https://www.sitronlabs.com/)
 [![Join the Discord community](https://img.shields.io/discord/552242187665145866?logo=discord&logoColor=white&label=Discord&color=%237289da)](https://discord.gg/btnVDeWhfW)
+[![PayPal Donate](https://img.shields.io/badge/PayPal-Donate-00457C?logo=paypal&logoColor=white)](https://www.paypal.com/donate/?hosted_button_id=QLX8VU9Q3PFFL)
 ![License](https://img.shields.io/github/license/sitronlabs/SitronLabs_Weikai_WK2132_Arduino_Library)
 ![Latest Release](https://img.shields.io/github/release/sitronlabs/SitronLabs_Weikai_WK2132_Arduino_Library)
 [![Arduino Library Manager](https://www.ardu-badge.com/badge/Sitron%20Labs%20WK2132%20Arduino%20Library.svg?)](https://www.ardu-badge.com/Sitron%20Labs%20WK2132%20Arduino%20Library)
