@@ -36,7 +36,7 @@ int wk2132::uart::begin(const uint32_t baudrate, const enum wk2132_uart_mode mod
     /* Enable fifos */
     uint8_t reg_fcr = 0x0D;
     if (page_set(WK2132_PAGE0) < 0 ||  //
-        m_device.register_write(WK2132_REGISTER_FCR, reg_fcr) < 0) {
+        register_write(WK2132_REGISTER_FCR, reg_fcr) < 0) {
         return -EIO;
     }
 
@@ -70,7 +70,8 @@ int wk2132::uart::begin(const uint32_t baudrate, const enum wk2132_uart_mode mod
             return -EINVAL;
         }
     }
-    if (m_device.register_write(WK2132_REGISTER_LCR, reg_lcr) < 0) {
+    if (page_set(WK2132_PAGE0) < 0 ||  //
+        register_write(WK2132_REGISTER_LCR, reg_lcr) < 0) {
         return -EIO;
     }
 
